@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusHelp</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #0b3d91;
+            color: white;
+            text-align: center;
+            padding: 35px 20px 30px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        header h1 {
+            font-size: 34px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 25px auto;
+            padding: 0 18px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .welcome h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .menu button {
+            width: 100%;
+            padding: 17px;
+            border: none;
+            border-radius: 14px;
+            background: white;
+            color: #172033;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .menu button:first-child {
+            background: #e53935;
+            color: white;
+        }
+
+        .menu button:hover {
+            transform: translateY(-2px);
+        }
+
+        .info-box {
+            margin-top: 25px;
+            background: white;
+            padding: 18px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .info-box h3 {
+            margin-bottom: 8px;
+            color: #0b3d91;
+        }
+
+        .info-box p {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🛡️ CAMPUSHELP</h1>
+        <p>report. connect. get help. stay safe.</p>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h2>HOW CAN WE HELP YOU?</h2>
+            <p>Choose a service below to get started.</p>
+        </section>
+
+        <section class="menu">
+
+            <button onclick="window.location.href='report.html'">
+    🚨 REPORT A PROBLEM
+</button>
+
+            <button onclick="window.location.href='track.html'">
+    📋 TRACK MY REPORT
+</button>
+
+            <button>📞 GET HELP</button>
+
+            <button>📢 CAMPUS UPDATES</button>
+
+            <button>ℹ️ CAMPUS INFORMATION</button>
+
+        </section>
+
+        <section class="info-box">
+
+            <h3>CampusHelp</h3>
+
+            <p>
+                A smart campus support platform designed
+                to make reporting, communication and
+                problem solving easier.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Developed by Katwesigye Nicholas</p>
+
+        <p>Bachelor of Information Technology (BIT)</p>
+
+        <p>© 2026 CampusHelp</p>
+
+    </footer>
+
+</body>
+
+</html>

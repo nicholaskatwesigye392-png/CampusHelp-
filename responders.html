@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>CampusHelp Responder</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+
+/* HEADER */
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+
+nav a,
+nav button {
+    display: inline-block;
+    padding: 12px 22px;
+    margin: 5px;
+    border-radius: 9px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home {
+    background: white;
+    color: #123c69;
+}
+
+.logout {
+    background: #dc2626;
+    color: white;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.welcome h2 {
+    color: #123c69;
+    margin-bottom: 12px;
+    font-size: 28px;
+}
+
+.welcome p {
+    font-size: 18px;
+}
+
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    background: white;
+    padding: 25px 10px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.stat strong {
+    display: block;
+    font-size: 40px;
+    color: #123c69;
+    margin-bottom: 8px;
+}
+
+.stat span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+/* SECTION */
+
+.section {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.section h2 {
+    color: #123c69;
+    margin-bottom: 20px;
+}
+
+
+/* REPORT */
+
+.report {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 13px;
+    margin-bottom: 18px;
+    background: #fafafa;
+}
+
+.report h3 {
+    color: #123c69;
+    margin-bottom: 12px;
+}
+
+.report p {
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.status-new {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.status-progress {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-resolved {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+
+/* BUTTONS */
+
+.actions {
+    margin-top: 15px;
+}
+
+.actions button {
+    padding: 10px 14px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.progress {
+    background: #2563eb;
+}
+
+.resolve {
+    background: #16a34a;
+}
+
+
+/* DEVELOPER */
+
+.developer {
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.developer h3 {
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .welcome h2 {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🧑‍🔧 CAMPUSHELP RESPONDER
+</h1>
+
+<nav>
+
+<a
+href="index.html"
+class="home">
+
+🏠 Home
+
+</a>
+
+
+<button
+onclick="logout()"
+class="logout">
+
+🚪 Logout
+
+</button>
+
+</nav>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- WELCOME -->
+
+<div class="welcome">
+
+<h2>
+Responder Dashboard
+</h2>
+
+<p>
+Welcome, Responder 👋
+</p>
+
+<br>
+
+<p>
+View campus reports and update their progress.
+</p>
+
+</div>
+
+
+<!-- STATISTICS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<strong id="total">
+0
+</strong>
+
+<span>
+Total Reports
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="newCount">
+0
+</strong>
+
+<span>
+New Reports
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="progressCount">
+0
+</strong>
+
+<span>
+In Progress
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="resolvedCount">
+0
+</strong>
+
+<span>
+Resolved
+</span>
+
+</div>
+
+
+</div>
+
+
+<!-- REPORTS -->
+
+<div class="section">
+
+<h2>
+📋 Campus Reports
+</h2>
+
+
+<div id="reports">
+
+<p>
+No reports available.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- DEVELOPER -->
+
+<div class="developer">
+
+<h3>
+👨‍💻 Developed By
+</h3>
+
+<p>
+Katwesigye Nicholas
+</p>
+
+<p>
+BIT Student | CampusHelp Project
+</p>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+CampusHelp — Report. Connect. Get Help. Stay Safe.
+
+<br><br>
+
+© 2026 CampusHelp
+
+</footer>
+
+
+<script>
+
+
+/* ================================
+   RESPONDER ACCESS PROTECTION
+================================ */
+
+const loggedIn =
+localStorage.getItem(
+"campusHelpLoggedIn"
+);
+
+const role =
+localStorage.getItem(
+"campusHelpUserRole"
+);
+
+
+if (
+loggedIn !== "true" ||
+role !== "responder"
+) {
+
+document.body.innerHTML = `
+
+<div style="
+text-align:center;
+padding:80px 20px;
+font-family:Arial;
+">
+
+<h1 style="color:#dc2626;">
+⛔ ACCESS DENIED
+</h1>
+
+<p style="
+font-size:20px;
+margin:20px;
+">
+
+Please login as Responder first.
+
+</p>
+
+<a
+href="Login.html"
+style="
+display:inline-block;
+background:#123c69;
+color:white;
+padding:14px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+">
+
+🔐 Go to Login
+
+</a>
+
+</div>
+
+`;
+
+}
+
+
+/* ================================
+   LOGOUT
+================================ */
+
+function logout() {
+
+    const confirmLogout =
+    confirm(
+        "Are you sure you want to logout?"
+    );
+
+
+    if (!confirmLogout) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "campusHelpLoggedIn"
+    );
+
+    localStorage.removeItem(
+        "campusHelpUserRole"
+    );
+
+    localStorage.removeItem(
+        "campusHelpUsername"
+    );
+
+
+    window.location.href =
+        "Login.html";
+
+}
+
+
+/* ================================
+   LOAD REPORTS
+================================ */
+
+function loadReports() {
+
+
+const reports =
+JSON.parse(
+localStorage.getItem(
+"campusHelpReports"
+)
+) || [];
+
+
+let newReports = 0;
+
+let progress = 0;
+
+let resolved = 0;
+
+
+reports.forEach(function(report) {
+
+
+if (
+!report.status ||
+report.status === "New"
+) {
+
+newReports++;
+
+}
+
+
+if (
+report.status === "In Progress"
+) {
+
+progress++;
+
+}
+
+
+if (
+report.status === "Resolved"
+) {
+
+resolved++;
+
+}
+
+});
+
+
+document.getElementById(
+"total"
+).textContent =
+reports.length;
+
+
+document.getElementById(
+"newCount"
+).textContent =
+newReports;
+
+
+document.getElementById(
+"progressCount"
+).textContent =
+progress;
+
+
+document.getElementById(
+"resolvedCount"
+).textContent =
+resolved;
+
+
+const container =
+document.getElementById(
+"reports"
+);
+
+
+container.innerHTML = "";
+
+
+if (
+reports.length === 0
+) {
+
+container.innerHTML = `
+
+<p>
+No campus reports available.
+</p>
+
+`;
+
+return;
+
+}
+
+
+/* CREATE REPORT CARDS */
+
+reports.forEach(
+function(report, index) {
+
+
+let statusClass =
+"status-new";
+
+
+let currentStatus =
+report.status ||
+"New";
+
+
+if (
+currentStatus ===
+"In Progress"
+) {
+
+statusClass =
+"status-progress";
+
+}
+
+
+if (
+currentStatus ===
+"Resolved"
+) {
+
+statusClass =
+"status-resolved";
+
+}
+
+
+const div =
+document.createElement(
+"div"
+);
+
+
+div.className =
+"report";
+
+
+div.innerHTML = `
+
+<h3>
+📌 ${report.id || "Campus Report"}
+</h3>
+
+
+<p>
+
+<strong>
+Name:
+</strong>
+
+${report.name || "Not provided"}
+
+</p>
+
+
+<p>
+
+<strong>
+Type:
+</strong>
+
+${report.type || "Not provided"}
+
+</p>
+
+
+<p>
+
+<strong>
+Location:
+</strong>
+
+${report.location || "Not provided"}
+
+</p>
+
+
+<p>
+
+<strong>
+Problem:
+</strong>
+
+${report.description || "Not provided"}
+
+</p>
+
+
+<p>
+
+<strong>
+Urgency:
+</strong>
+
+${report.urgency || "Not provided"}
+
+</p>
+
+
+<p>
+
+<strong>
+Status:
+</strong>
+
+<br>
+
+
+<span
+class="status ${statusClass}">
+
+${currentStatus}
+
+</span>
+
+</p>
+
+
+<div class="actions">
+
+
+<button
+class="progress"
+onclick="
+changeStatus(
+${index},
+'In Progress'
+)">
+
+🔄 In Progress
+
+</button>
+
+
+<button
+class="resolve"
+onclick="
+changeStatus(
+${index},
+'Resolved'
+)">
+
+✅ Resolve
+
+</button>
+
+
+</div>
+
+`;
+
+
+container.appendChild(
+div
+);
+
+
+});
+
+}
+
+
+/* ================================
+   CHANGE STATUS
+================================ */
+
+function changeStatus(
+index,
+status
+) {
+
+
+const reports =
+JSON.parse(
+localStorage.getItem(
+"campusHelpReports"
+)
+) || [];
+
+
+if (!reports[index]) {
+
+return;
+
+}
+
+
+reports[index].status =
+status;
+
+
+localStorage.setItem(
+"campusHelpReports",
+JSON.stringify(
+reports
+)
+);
+
+
+loadReports();
+
+
+}
+
+
+/* ================================
+   START
+================================ */
+
+loadReports();
+
+
+</script>
+
+
+</body>
+
+</html>

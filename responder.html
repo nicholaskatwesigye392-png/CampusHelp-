@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Responder Dashboard - CampusHelp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+
+/* HEADER */
+
+header {
+    background: #0b3d91;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 15px;
+}
+
+
+/* CONTAINER */
+
+.container {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 0 18px;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    margin-bottom: 22px;
+}
+
+.welcome h2 {
+    color: #0b3d91;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* STATS */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 22px 12px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+    0 4px 14px
+    rgba(0,0,0,0.08);
+}
+
+.stat-card h3 {
+    color: #0b3d91;
+
+    font-size: 32px;
+
+    margin-bottom: 7px;
+}
+
+.stat-card p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* REPORT BOX */
+
+.report-box {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    box-shadow:
+    0 4px 14px
+    rgba(0,0,0,0.08);
+}
+
+.report-box h3 {
+    color: #0b3d91;
+
+    font-size: 23px;
+
+    margin-bottom: 18px;
+}
+
+
+/* REPORT */
+
+.report {
+    border: 1px solid #dbe2ea;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    background: white;
+
+    margin-bottom: 18px;
+}
+
+.report p {
+    margin-bottom: 10px;
+
+    line-height: 1.5;
+}
+
+.report strong {
+    color: #0b3d91;
+}
+
+
+/* DEPARTMENT */
+
+.department {
+    background: #eef5ff;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin: 12px 0;
+
+    font-weight: bold;
+}
+
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #fff3cd;
+
+    color: #856404;
+
+    font-weight: bold;
+}
+
+
+/* ACTION */
+
+.action-title {
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+
+    font-weight: bold;
+
+    color: #172033;
+}
+
+.action-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+.progress-btn {
+    background: #f59e0b;
+}
+
+.resolved-btn {
+    background: #16a34a;
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* NO REPORT */
+
+.no-report {
+    text-align: center;
+
+    color: #64748b;
+
+    padding: 25px 10px;
+}
+
+
+/* HOME */
+
+.home-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #64748b;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 28px 15px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🔧 CAMPUSHELP
+</h1>
+
+<p>
+Responder Dashboard
+</p>
+
+</header>
+
+
+
+<main class="container">
+
+
+<section class="welcome">
+
+<h2>
+🛠️ Responder Dashboard
+</h2>
+
+<p>
+View campus reports and update
+their progress.
+</p>
+
+</section>
+
+
+
+<!-- =========================
+     STATISTICS
+========================= -->
+
+<section class="stats">
+
+
+<div class="stat-card">
+
+<h3 id="newReports">
+0
+</h3>
+
+<p>
+New Reports
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h3 id="progressReports">
+0
+</h3>
+
+<p>
+In Progress
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h3 id="resolvedReports">
+0
+</h3>
+
+<p>
+Resolved
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<h3 id="totalReports">
+0
+</h3>
+
+<p>
+Total Reports
+</p>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =========================
+     REPORTS
+========================= -->
+
+<section class="report-box">
+
+<h3>
+📋 Assigned Campus Reports
+</h3>
+
+<div id="reportList">
+
+<p class="no-report">
+No reports available yet.
+</p>
+
+</div>
+
+</section>
+
+
+
+<button
+class="home-btn"
+onclick="window.location.href='index.html'">
+
+← BACK TO HOME
+
+</button>
+
+
+</main>
+
+
+
+<footer>
+
+<p>
+Developed by Katwesigye Nicholas
+</p>
+
+<p>
+Bachelor of Information Technology (BIT)
+</p>
+
+<p>
+© 2026 CampusHelp
+</p>
+
+</footer>
+
+
+
+<script>
+
+
+/* =================================
+   LOAD REPORTS
+================================= */
+
+let reports = [];
+
+
+const savedReports =
+localStorage.getItem(
+    "campusHelpReports"
+);
+
+
+if (savedReports) {
+
+    try {
+
+        reports =
+        JSON.parse(savedReports);
+
+    }
+
+    catch (error) {
+
+        reports = [];
+
+    }
+
+}
+
+
+/* =================================
+   COUNT REPORTS
+================================= */
+
+let newCount = 0;
+
+let progressCount = 0;
+
+let resolvedCount = 0;
+
+
+for (
+    let i = 0;
+    i < reports.length;
+    i++
+) {
+
+    if (
+        reports[i].status === "New"
+    ) {
+
+        newCount++;
+
+    }
+
+
+    if (
+        reports[i].status === "In Progress"
+    ) {
+
+        progressCount++;
+
+    }
+
+
+    if (
+        reports[i].status === "Resolved"
+    ) {
+
+        resolvedCount++;
+
+    }
+
+}
+
+
+/* =================================
+   DISPLAY STATISTICS
+================================= */
+
+document.getElementById(
+    "newReports"
+).textContent = newCount;
+
+
+document.getElementById(
+    "progressReports"
+).textContent = progressCount;
+
+
+document.getElementById(
+    "resolvedReports"
+).textContent = resolvedCount;
+
+
+document.getElementById(
+    "totalReports"
+).textContent =
+reports.length;
+
+
+
+/* =================================
+   DISPLAY REPORTS
+================================= */
+
+const reportList =
+document.getElementById(
+    "reportList"
+);
+
+
+if (reports.length === 0) {
+
+    reportList.innerHTML =
+    "<p class='no-report'>" +
+    "No reports available yet." +
+    "</p>";
+
+}
+
+else {
+
+    reportList.innerHTML = "";
+
+
+    for (
+        let i = 0;
+        i < reports.length;
+        i++
+    ) {
+
+
+        const report =
+        reports[i];
+
+
+        const department =
+        report.department ||
+        "General Support";
+
+
+        const reportDiv =
+        document.createElement("div");
+
+
+        reportDiv.className =
+        "report";
+
+
+        /* REPORT ID */
+
+        const reportId =
+        document.createElement("p");
+
+
+        reportId.innerHTML =
+        "<strong>Report ID:</strong> " +
+        report.id;
+
+
+        /* PROBLEM TYPE */
+
+        const category =
+        document.createElement("p");
+
+
+        category.innerHTML =
+        "<strong>Problem Type:</strong> " +
+        (report.type ||
+        report.category ||
+        "Not specified");
+
+
+        /* DEPARTMENT */
+
+        const departmentBox =
+        document.createElement("div");
+
+
+        departmentBox.className =
+        "department";
+
+
+        departmentBox.innerHTML =
+        "🏢 Assigned Department: " +
+        department;
+
+
+        /* LOCATION */
+
+        const location =
+        document.createElement("p");
+
+
+        location.innerHTML =
+        "<strong>Location:</strong> " +
+        report.location;
+
+
+        /* DESCRIPTION */
+
+        const description =
+        document.createElement("p");
+
+
+        description.innerHTML =
+        "<strong>Description:</strong> " +
+        report.description;
+
+
+        /* STATUS */
+
+        const statusText =
+        document.createElement("p");
+
+
+        statusText.innerHTML =
+        "<strong>Status:</strong> " +
+        "<span class='status'>" +
+        (report.status || "New") +
+        "</span>";
+
+
+        /* ACTION TITLE */
+
+        const actionTitle =
+        document.createElement("p");
+
+
+        actionTitle.className =
+        "action-title";
+
+
+        actionTitle.textContent =
+        "Update Report:";
+
+
+        /* IN PROGRESS */
+
+        const progressButton =
+        document.createElement("button");
+
+
+        progressButton.className =
+        "action-btn progress-btn";
+
+
+        progressButton.textContent =
+        "🔧 MARK AS IN PROGRESS";
+
+
+        progressButton.onclick =
+        function() {
+
+            updateStatus(
+                report.id,
+                "In Progress"
+            );
+
+        };
+
+
+        /* RESOLVED */
+
+        const resolvedButton =
+        document.createElement("button");
+
+
+        resolvedButton.className =
+        "action-btn resolved-btn";
+
+
+        resolvedButton.textContent =
+        "✅ MARK AS RESOLVED";
+
+
+        resolvedButton.onclick =
+        function() {
+
+            updateStatus(
+                report.id,
+                "Resolved"
+            );
+
+        };
+
+
+        /* ADD CONTENT */
+
+        reportDiv.appendChild(
+            reportId
+        );
+
+
+        reportDiv.appendChild(
+            category
+        );
+
+
+        reportDiv.appendChild(
+            departmentBox
+        );
+
+
+        reportDiv.appendChild(
+            location
+        );
+
+
+        reportDiv.appendChild(
+            description
+        );
+
+
+        reportDiv.appendChild(
+            statusText
+        );
+
+
+        reportDiv.appendChild(
+            actionTitle
+        );
+
+
+        reportDiv.appendChild(
+            progressButton
+        );
+
+
+        reportDiv.appendChild(
+            resolvedButton
+        );
+
+
+        reportList.appendChild(
+            reportDiv
+        );
+
+    }
+
+}
+
+
+
+/* =================================
+   UPDATE STATUS
+================================= */
+
+function updateStatus(
+    reportId,
+    newStatus
+) {
+
+
+    let changedReport = null;
+
+
+    /* FIND REPORT */
+
+    for (
+        let i = 0;
+        i < reports.length;
+        i++
+    ) {
+
+        if (
+            reports[i].id === reportId
+        ) {
+
+            reports[i].status =
+            newStatus;
+
+            changedReport =
+            reports[i];
+
+            break;
+
+        }
+
+    }
+
+
+    if (!changedReport) {
+
+        alert(
+            "❌ Report could not be found."
+        );
+
+        return;
+
+    }
+
+
+    /* =================================
+       SAVE REPORT
+    ================================= */
+
+    localStorage.setItem(
+        "campusHelpReports",
+        JSON.stringify(reports)
+    );
+
+
+
+    /* =================================
+       UPDATE LAST REPORT
+    ================================= */
+
+    const lastReport =
+    localStorage.getItem(
+        "campusHelpLastReport"
+    );
+
+
+    if (lastReport) {
+
+        try {
+
+            const last =
+            JSON.parse(lastReport);
+
+
+            if (
+                last.id === reportId
+            ) {
+
+                last.status =
+                newStatus;
+
+
+                localStorage.setItem(
+                    "campusHelpLastReport",
+                    JSON.stringify(last)
+                );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.log(
+                "Last report update error"
+            );
+
+        }
+
+    }
+
+
+
+    /* =================================
+       CREATE NOTIFICATION
+    ================================= */
+
+    let notifications = [];
+
+
+    const savedNotifications =
+    localStorage.getItem(
+        "campusHelpNotifications"
+    );
+
+
+    if (savedNotifications) {
+
+        try {
+
+            notifications =
+            JSON.parse(
+                savedNotifications
+            );
+
+        }
+
+        catch (error) {
+
+            notifications = [];
+
+        }
+
+    }
+
+
+    const notification = {
+
+        id:
+        "NOTIF-" +
+        Date.now(),
+
+        reportId:
+        reportId,
+
+        status:
+        newStatus,
+
+        message:
+        "Your report " +
+        reportId +
+        " has been updated to " +
+        newStatus + ".",
+
+        date:
+        new Date()
+        .toLocaleString(),
+
+        read: false
+
+    };
+
+
+    notifications.unshift(
+        notification
+    );
+
+
+    /* SAVE NOTIFICATION */
+
+    localStorage.setItem(
+        "campusHelpNotifications",
+        JSON.stringify(
+            notifications
+        )
+    );
+
+
+
+    /* =================================
+       CONFIRM
+    ================================= */
+
+    alert(
+        "✅ Report " +
+        reportId +
+        " is now " +
+        newStatus +
+        ".\n\n" +
+        "🔔 Student notification created."
+    );
+
+
+    /* REFRESH */
+
+    location.reload();
+
+}
+
+</script>
+
+
+</body>
+
+</html>

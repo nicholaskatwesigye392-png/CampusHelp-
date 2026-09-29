@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Report Problem | CampusHelp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+
+/* HEADER */
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.home-btn {
+    background: white;
+    color: #123c69;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+
+/* TITLE */
+
+.page-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.page-title h1 {
+    color: #123c69;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    color: #555;
+    font-size: 17px;
+}
+
+
+/* FORM CARD */
+
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+
+/* FORM */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border: 2px solid #123c69;
+}
+
+
+/* SUBMIT */
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #123c69;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #0d3157;
+}
+
+
+/* SUCCESS MESSAGE */
+
+.success {
+    display: none;
+    background: #dcfce7;
+    color: #166534;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.success h2 {
+    margin-bottom: 10px;
+}
+
+
+/* REPORT ID */
+
+.report-id {
+    font-size: 21px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+/* QUICK LINKS */
+
+.quick-links {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.quick-links a {
+    text-align: center;
+    padding: 14px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.track {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.home {
+    background: #e5e7eb;
+    color: #333;
+}
+
+
+/* DEVELOPER */
+
+.developer {
+    margin-top: 30px;
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.developer h3 {
+    margin-bottom: 8px;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .form-card {
+        padding: 22px;
+    }
+
+    .page-title h1 {
+        font-size: 27px;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+🆘 CAMPUSHELP
+</div>
+
+<a
+href="index.html"
+class="home-btn">
+
+🏠 Home
+
+</a>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="page-title">
+
+<h1>
+📝 Report a Problem
+</h1>
+
+<p>
+Tell us about the problem you are experiencing on campus.
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+
+<form id="reportForm">
+
+
+<!-- NAME -->
+
+<div class="form-group">
+
+<label for="name">
+Student Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<!-- REPORT TYPE -->
+
+<div class="form-group">
+
+<label for="type">
+Problem Type
+</label>
+
+<select
+id="type"
+required>
+
+<option value="">
+Select problem type
+</option>
+
+<option value="Security">
+Security
+</option>
+
+<option value="Electricity">
+Electricity
+</option>
+
+<option value="Water">
+Water
+</option>
+
+<option value="Internet">
+Internet
+</option>
+
+<option value="Infrastructure">
+Infrastructure
+</option>
+
+<option value="Health">
+Health
+</option>
+
+<option value="Harassment">
+Harassment
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="form-group">
+
+<label for="location">
+Location
+</label>
+
+<input
+type="text"
+id="location"
+placeholder="Where did the problem occur?"
+required>
+
+</div>
+
+
+<!-- DESCRIPTION -->
+
+<div class="form-group">
+
+<label for="description">
+Describe the Problem
+</label>
+
+<textarea
+id="description"
+placeholder="Explain the problem clearly..."
+required>
+</textarea>
+
+</div>
+
+
+<!-- URGENCY -->
+
+<div class="form-group">
+
+<label for="urgency">
+Urgency Level
+</label>
+
+<select
+id="urgency"
+required>
+
+<option value="">
+Select urgency
+</option>
+
+<option value="Low">
+Low
+</option>
+
+<option value="Medium">
+Medium
+</option>
+
+<option value="High">
+High
+</option>
+
+<option value="Emergency">
+Emergency
+</option>
+
+</select>
+
+</div>
+
+
+<button
+type="submit"
+class="submit-btn">
+
+🚨 Submit Report
+
+</button>
+
+
+</form>
+
+
+<!-- SUCCESS -->
+
+<div
+id="successMessage"
+class="success">
+
+<h2>
+✅ Report Submitted Successfully!
+</h2>
+
+<p>
+Your report has been received by CampusHelp.
+</p>
+
+<p>
+Your Report ID is:
+</p>
+
+<div
+id="reportId"
+class="report-id">
+</div>
+
+<p>
+Use this ID to track your report.
+</p>
+
+</div>
+
+
+<div class="quick-links">
+
+<a
+href="track.html"
+class="track">
+
+🔎 Track My Report
+
+</a>
+
+
+<a
+href="index.html"
+class="home">
+
+🏠 Back to Home
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- DEVELOPER -->
+
+<div class="developer">
+
+<h3>
+👨‍💻 Developed By
+</h3>
+
+<p>
+Katwesigye Nicholas
+</p>
+
+<p>
+BIT Student | CampusHelp Project
+</p>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+CampusHelp — Report. Connect. Get Help. Stay Safe.
+
+<br><br>
+
+© 2026 CampusHelp
+
+</footer>
+
+
+<script>
+
+
+/* =================================
+   REPORT FORM
+================================= */
+
+document
+.getElementById("reportForm")
+.addEventListener(
+"submit",
+function(event) {
+
+event.preventDefault();
+
+
+/* GET FORM VALUES */
+
+const name =
+document
+.getElementById("name")
+.value
+.trim();
+
+
+const type =
+document
+.getElementById("type")
+.value;
+
+
+const location =
+document
+.getElementById("location")
+.value
+.trim();
+
+
+const description =
+document
+.getElementById("description")
+.value
+.trim();
+
+
+const urgency =
+document
+.getElementById("urgency")
+.value;
+
+
+/* GET EXISTING REPORTS */
+
+const reports =
+JSON.parse(
+localStorage.getItem(
+"campusHelpReports"
+)
+) || [];
+
+
+/* CREATE REPORT ID */
+
+const reportNumber =
+reports.length + 1;
+
+
+const reportId =
+"CH-" +
+new Date().getFullYear() +
+"-" +
+String(reportNumber)
+.padStart(4, "0");
+
+
+/* CREATE REPORT */
+
+const newReport = {
+
+id: reportId,
+
+name: name,
+
+type: type,
+
+location: location,
+
+description: description,
+
+urgency: urgency,
+
+status: "New",
+
+date:
+new Date()
+.toLocaleString()
+
+};
+
+
+/* SAVE REPORT */
+
+reports.push(newReport);
+
+
+localStorage.setItem(
+"campusHelpReports",
+JSON.stringify(reports)
+);
+
+
+/* SAVE LAST REPORT ID */
+
+localStorage.setItem(
+"campusHelpLastReport",
+reportId
+);
+
+
+/* SHOW SUCCESS */
+
+document
+.getElementById("reportId")
+.textContent =
+reportId;
+
+
+document
+.getElementById("successMessage")
+.style.display =
+"block";
+
+
+/* CLEAR FORM */
+
+document
+.getElementById("reportForm")
+.reset();
+
+
+/* SCROLL TO SUCCESS */
+
+document
+.getElementById("successMessage")
+.scrollIntoView({
+behavior: "smooth"
+});
+
+
+});
+
+</script>
+
+
+</body>
+
+</html>

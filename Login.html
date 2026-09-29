@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CampusHelp Login</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    margin: 60px auto;
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #123c69;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #123c69;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.success {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background: #e8f7ee;
+    border-radius: 10px;
+}
+
+.success h2 {
+    color: #15803d;
+}
+
+.admin-button {
+    display: block;
+    text-decoration: none;
+    background: #15803d;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.error {
+    display: none;
+    color: #dc2626;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #123c69;
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="login-box">
+
+<h1>🔐 CampusHelp</h1>
+
+<p class="subtitle">
+Login to your CampusHelp account
+</p>
+
+
+<form id="loginForm">
+
+
+<label>
+Username
+</label>
+
+<input
+type="text"
+id="username"
+placeholder="Enter username"
+required>
+
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter password"
+required>
+
+
+<label>
+Select Role
+</label>
+
+<select id="role" required>
+
+<option value="">
+Choose your role
+</option>
+
+<option value="student">
+Student
+</option>
+
+<option value="admin">
+Admin
+</option>
+
+<option value="responder">
+Responder
+</option>
+
+</select>
+
+
+<button type="submit">
+🔐 Login
+</button>
+
+
+</form>
+
+
+<div
+class="error"
+id="errorMessage">
+
+❌ Incorrect username, password or role.
+
+</div>
+
+
+<div
+class="success"
+id="successMessage">
+
+<h2>
+✅ LOGIN SUCCESSFUL!
+</h2>
+
+<p id="welcomeMessage">
+Welcome to CampusHelp.
+</p>
+
+
+<a
+id="dashboardButton"
+class="admin-button"
+href="index.html">
+
+OPEN DASHBOARD
+
+</a>
+
+</div>
+
+
+<a
+href="index.html"
+class="home">
+
+← Back to Home
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+document
+.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+
+event.preventDefault();
+
+
+const username =
+document
+.getElementById("username")
+.value
+.trim()
+.toLowerCase();
+
+
+const password =
+document
+.getElementById("password")
+.value
+.trim();
+
+
+const role =
+document
+.getElementById("role")
+.value;
+
+
+let correct = false;
+
+
+/* ADMIN */
+
+if (
+username === "admin" &&
+password === "admin123" &&
+role === "admin"
+) {
+
+correct = true;
+
+}
+
+
+/* STUDENT */
+
+if (
+username === "student" &&
+password === "1234" &&
+role === "student"
+) {
+
+correct = true;
+
+}
+
+
+/* RESPONDER */
+
+if (
+username === "responder" &&
+password === "1234" &&
+role === "responder"
+) {
+
+correct = true;
+
+}
+
+
+const error =
+document.getElementById(
+"errorMessage"
+);
+
+const success =
+document.getElementById(
+"successMessage"
+);
+
+
+if (!correct) {
+
+error.style.display = "block";
+
+success.style.display = "none";
+
+return;
+
+}
+
+
+/* SAVE LOGIN */
+
+localStorage.setItem(
+"campusHelpLoggedIn",
+"true"
+);
+
+localStorage.setItem(
+"campusHelpUserRole",
+role
+);
+
+localStorage.setItem(
+"campusHelpUsername",
+username
+);
+
+
+/* HIDE ERROR */
+
+error.style.display = "none";
+
+
+/* SHOW SUCCESS */
+
+success.style.display = "block";
+
+
+document.getElementById(
+"welcomeMessage"
+).textContent =
+"Welcome " +
+username +
+"! You are logged in as " +
+role +
+".";
+
+
+/* SELECT DESTINATION */
+
+const dashboardButton =
+document.getElementById(
+"dashboardButton"
+);
+
+
+if (role === "admin") {
+
+dashboardButton.href =
+"Admin.html";
+
+dashboardButton.textContent =
+"👨‍💼 OPEN ADMIN DASHBOARD";
+
+}
+
+else if (role === "responder") {
+
+dashboardButton.href =
+"responder.html";
+
+dashboardButton.textContent =
+"🛠️ OPEN RESPONDER DASHBOARD";
+
+}
+
+else {
+
+dashboardButton.href =
+"index.html";
+
+dashboardButton.textContent =
+"🏠 OPEN CAMPUSHELP";
+
+}
+
+
+});
+
+</script>
+
+
+</body>
+
+</html>

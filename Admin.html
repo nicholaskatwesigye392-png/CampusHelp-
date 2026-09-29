@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>CampusHelp Admin</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+/* HEADER */
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+
+nav a,
+nav button {
+    display: inline-block;
+    padding: 12px 22px;
+    margin: 5px;
+    border-radius: 9px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home {
+    background: white;
+    color: #123c69;
+}
+
+.logout {
+    background: #dc2626;
+    color: white;
+}
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* WELCOME */
+
+.welcome {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.welcome h2 {
+    color: #123c69;
+    margin-bottom: 12px;
+    font-size: 28px;
+}
+
+.welcome p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    background: white;
+    padding: 25px 10px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.stat strong {
+    display: block;
+    font-size: 40px;
+    color: #123c69;
+    margin-bottom: 8px;
+}
+
+.stat span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* SECTIONS */
+
+.section {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.section h2 {
+    color: #123c69;
+    margin-bottom: 20px;
+}
+
+/* REPORT */
+
+.report {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 13px;
+    margin-bottom: 18px;
+    background: #fafafa;
+}
+
+.report h3 {
+    color: #123c69;
+    margin-bottom: 12px;
+}
+
+.report p {
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.status-new {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.status-progress {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-resolved {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+/* BUTTONS */
+
+.actions {
+    margin-top: 15px;
+}
+
+.actions button {
+    padding: 10px 14px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.progress {
+    background: #2563eb;
+}
+
+.resolve {
+    background: #16a34a;
+}
+
+.delete {
+    background: #dc2626;
+}
+
+.actions button:active {
+    transform: scale(0.97);
+}
+
+/* ANNOUNCEMENTS */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.post {
+    width: 100%;
+    padding: 14px;
+    background: #123c69;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.announcement {
+    background: #f4f7fb;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.announcement h3 {
+    color: #123c69;
+    margin-bottom: 8px;
+}
+
+.announcement p {
+    line-height: 1.5;
+    margin-top: 7px;
+}
+
+.announcement small {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+}
+
+/* DEVELOPER */
+
+.developer {
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.developer h3 {
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.developer p {
+    margin: 5px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .welcome h2 {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 20px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<h1>
+👨‍💼 CAMPUSHELP ADMIN
+</h1>
+
+<nav>
+
+<a
+href="index.html"
+class="home">
+
+🏠 Home
+
+</a>
+
+
+<button
+onclick="logout()"
+class="logout">
+
+🚪 Logout
+
+</button>
+
+</nav>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- =========================
+     WELCOME
+========================= -->
+
+<div class="welcome">
+
+<h2>
+Admin Dashboard
+</h2>
+
+<p>
+Welcome, Administrator 👋
+</p>
+
+<br>
+
+<p>
+Manage campus reports and publish
+important campus announcements.
+</p>
+
+</div>
+
+
+
+<!-- =========================
+     STATISTICS
+========================= -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<strong id="total">
+0
+</strong>
+
+<span>
+Total Reports
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="newCount">
+0
+</strong>
+
+<span>
+New Reports
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="progressCount">
+0
+</strong>
+
+<span>
+In Progress
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="resolvedCount">
+0
+</strong>
+
+<span>
+Resolved
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     REPORTS
+========================= -->
+
+<div class="section">
+
+<h2>
+📋 Campus Reports
+</h2>
+
+<div id="reports">
+
+<p>
+No reports available.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     ANNOUNCEMENTS
+========================= -->
+
+<div class="section">
+
+<h2>
+📢 Announcement Manager
+</h2>
+
+
+<form id="announcementForm">
+
+
+<input
+type="text"
+id="title"
+placeholder="Announcement title"
+required>
+
+
+<select
+id="category"
+required>
+
+<option value="">
+Select Category
+</option>
+
+<option value="GENERAL">
+GENERAL
+</option>
+
+<option value="SAFETY">
+SAFETY
+</option>
+
+<option value="MAINTENANCE">
+MAINTENANCE
+</option>
+
+<option value="EVENT">
+EVENT
+</option>
+
+</select>
+
+
+<textarea
+id="announcement"
+placeholder="Write announcement..."
+required>
+</textarea>
+
+
+<button
+class="post"
+type="submit">
+
+📢 Post Announcement
+
+</button>
+
+
+</form>
+
+
+<div id="announcementList">
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     DEVELOPER
+========================= -->
+
+<div class="developer">
+
+<h3>
+👨‍💻 Developed By
+</h3>
+
+<p>
+Katwesigye Nicholas
+</p>
+
+<p>
+BIT Student | CampusHelp Project
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+CampusHelp — Report. Connect.
+Get Help. Stay Safe.
+
+<br><br>
+
+© 2026 CampusHelp
+
+</footer>
+
+
+
+<script>
+
+
+/* =================================
+   ADMIN ACCESS PROTECTION
+================================= */
+
+const loggedIn =
+localStorage.getItem(
+    "campusHelpLoggedIn"
+);
+
+const role =
+localStorage.getItem(
+    "campusHelpUserRole"
+);
+
+
+if (
+    loggedIn !== "true" ||
+    role !== "admin"
+) {
+
+    document.body.innerHTML = `
+
+    <div style="
+    text-align:center;
+    padding:80px 20px;
+    font-family:Arial;
+    ">
+
+    <h1 style="
+    color:#dc2626;
+    ">
+
+    ⛔ ACCESS DENIED
+
+    </h1>
+
+    <p style="
+    font-size:20px;
+    margin:20px;
+    ">
+
+    Please login as Admin first.
+
+    </p>
+
+    <a
+    href="Login.html"
+    style="
+    display:inline-block;
+    background:#123c69;
+    color:white;
+    padding:14px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    ">
+
+    🔐 Go to Login
+
+    </a>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =================================
+   LOGOUT
+================================= */
+
+function logout() {
+
+    const confirmLogout =
+    confirm(
+        "Are you sure you want to logout?"
+    );
+
+
+    if (!confirmLogout) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "campusHelpLoggedIn"
+    );
+
+    localStorage.removeItem(
+        "campusHelpUserRole"
+    );
+
+    localStorage.removeItem(
+        "campusHelpUsername"
+    );
+
+
+    window.location.href =
+        "Login.html";
+
+}
+
+
+
+/* =================================
+   LOAD REPORTS
+================================= */
+
+function loadReports() {
+
+    const reports =
+    JSON.parse(
+        localStorage.getItem(
+            "campusHelpReports"
+        )
+    ) || [];
+
+
+    let newReports = 0;
+
+    let progress = 0;
+
+    let resolved = 0;
+
+
+    reports.forEach(
+        function(report) {
+
+            const status =
+            report.status || "New";
+
+
+            if (
+                status === "New"
+            ) {
+
+                newReports++;
+
+            }
+
+
+            if (
+                status === "In Progress"
+            ) {
+
+                progress++;
+
+            }
+
+
+            if (
+                status === "Resolved"
+            ) {
+
+                resolved++;
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "total"
+    ).textContent =
+    reports.length;
+
+
+    document.getElementById(
+        "newCount"
+    ).textContent =
+    newReports;
+
+
+    document.getElementById(
+        "progressCount"
+    ).textContent =
+    progress;
+
+
+    document.getElementById(
+        "resolvedCount"
+    ).textContent =
+    resolved;
+
+
+
+    const container =
+    document.getElementById(
+        "reports"
+    );
+
+
+    container.innerHTML = "";
+
+
+    if (
+        reports.length === 0
+    ) {
+
+        container.innerHTML = `
+
+        <p>
+        No reports available.
+        </p>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    reports.forEach(
+        function(report, index) {
+
+
+            let statusClass =
+            "status-new";
+
+
+            const currentStatus =
+            report.status || "New";
+
+
+            if (
+                currentStatus ===
+                "In Progress"
+            ) {
+
+                statusClass =
+                "status-progress";
+
+            }
+
+
+            if (
+                currentStatus ===
+                "Resolved"
+            ) {
+
+                statusClass =
+                "status-resolved";
+
+            }
+
+
+
+            const div =
+            document.createElement(
+                "div"
+            );
+
+
+            div.className =
+            "report";
+
+
+            div.innerHTML = `
+
+            <h3>
+            📌 ${report.id || "Report"}
+            </h3>
+
+
+            <p>
+            <strong>Name:</strong>
+            ${report.name || "Not provided"}
+            </p>
+
+
+            <p>
+            <strong>Type:</strong>
+            ${report.type || "Not provided"}
+            </p>
+
+
+            <p>
+            <strong>Location:</strong>
+            ${report.location || "Not provided"}
+            </p>
+
+
+            <p>
+            <strong>Problem:</strong>
+            ${report.description || "Not provided"}
+            </p>
+
+
+            <p>
+            <strong>Urgency:</strong>
+            ${report.urgency || "Not provided"}
+            </p>
+
+
+            <p>
+
+            <strong>
+            Status:
+            </strong>
+
+            <br>
+
+
+            <span
+            class="status ${statusClass}">
+
+            ${currentStatus}
+
+            </span>
+
+            </p>
+
+
+            <div class="actions">
+
+
+            <button
+            class="progress"
+            onclick="
+            changeStatus(
+                ${index},
+                'In Progress'
+            )">
+
+            🔄 In Progress
+
+            </button>
+
+
+            <button
+            class="resolve"
+            onclick="
+            changeStatus(
+                ${index},
+                'Resolved'
+            )">
+
+            ✅ Resolve
+
+            </button>
+
+
+            <button
+            class="delete"
+            onclick="
+            deleteReport(
+                ${index}
+            )">
+
+            🗑️ Delete
+
+            </button>
+
+
+            </div>
+
+            `;
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =================================
+   CHANGE REPORT STATUS
+================================= */
+
+function changeStatus(
+    index,
+    newStatus
+) {
+
+    const reports =
+    JSON.parse(
+        localStorage.getItem(
+            "campusHelpReports"
+        )
+    ) || [];
+
+
+    if (!reports[index]) {
+
+        alert(
+            "❌ Report could not be found."
+        );
+
+        return;
+
+    }
+
+
+    const report =
+    reports[index];
+
+
+    const oldStatus =
+    report.status || "New";
+
+
+    /*
+       Do nothing if the status
+       is already the same.
+    */
+
+    if (
+        oldStatus === newStatus
+    ) {
+
+        alert(
+            "ℹ️ This report is already " +
+            newStatus + "."
+        );
+
+        return;
+
+    }
+
+
+    /* UPDATE REPORT */
+
+    report.status =
+    newStatus;
+
+
+    localStorage.setItem(
+        "campusHelpReports",
+        JSON.stringify(
+            reports
+        )
+    );
+
+
+
+    /* =================================
+       CREATE STUDENT NOTIFICATION
+    ================================= */
+
+    let notifications = [];
+
+
+    const savedNotifications =
+    localStorage.getItem(
+        "campusHelpNotifications"
+    );
+
+
+    if (
+        savedNotifications
+    ) {
+
+        try {
+
+            notifications =
+            JSON.parse(
+                savedNotifications
+            );
+
+        }
+
+        catch (error) {
+
+            notifications = [];
+
+        }
+
+    }
+
+
+
+    const notification = {
+
+        id:
+        "NOTIF-" +
+        Date.now(),
+
+        reportId:
+        report.id,
+
+        status:
+        newStatus,
+
+        message:
+        "Your report " +
+        report.id +
+        " has been updated to " +
+        newStatus +
+        " by the administrator.",
+
+        date:
+        new Date()
+        .toLocaleString(),
+
+        read:
+        false
+
+    };
+
+
+    notifications.unshift(
+        notification
+    );
+
+
+    localStorage.setItem(
+        "campusHelpNotifications",
+        JSON.stringify(
+            notifications
+        )
+    );
+
+
+
+    /* =================================
+       UPDATE STUDENT'S LATEST REPORT
+    ================================= */
+
+    const lastReportId =
+    localStorage.getItem(
+        "campusHelpLastReport"
+    );
+
+
+    /*
+       Some older versions of the
+       project may store the entire
+       report object here.
+
+       This handles both formats.
+    */
+
+    if (
+        lastReportId === report.id
+    ) {
+
+        /*
+           Current system:
+           lastReport stores only ID.
+           Nothing else is required.
+        */
+
+    }
+
+
+
+    /* REFRESH DASHBOARD */
+
+    loadReports();
+
+
+    alert(
+        "✅ Report " +
+        report.id +
+        " is now " +
+        newStatus +
+        ".\n\n" +
+        "🔔 Student notification created."
+    );
+
+}
+
+
+
+/* =================================
+   DELETE REPORT
+================================= */
+
+function deleteReport(
+    index
+) {
+
+    const reports =
+    JSON.parse(
+        localStorage.getItem(
+            "campusHelpReports"
+        )
+    ) || [];
+
+
+    if (!reports[index]) {
+
+        return;
+
+    }
+
+
+    const report =
+    reports[index];
+
+
+    const confirmDelete =
+    confirm(
+        "Are you sure you want to delete report " +
+        report.id +
+        "?"
+    );
+
+
+    if (
+        !confirmDelete
+    ) {
+
+        return;
+
+    }
+
+
+    reports.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        "campusHelpReports",
+        JSON.stringify(
+            reports
+        )
+    );
+
+
+    /*
+       If the deleted report was
+       the student's latest report,
+       remove the latest-report
+       reference too.
+    */
+
+    const lastReportId =
+    localStorage.getItem(
+        "campusHelpLastReport"
+    );
+
+
+    if (
+        lastReportId === report.id
+    ) {
+
+        localStorage.removeItem(
+            "campusHelpLastReport"
+        );
+
+    }
+
+
+    loadReports();
+
+
+    alert(
+        "🗑️ Report deleted successfully."
+    );
+
+}
+
+
+
+/* =================================
+   ANNOUNCEMENT FORM
+================================= */
+
+document
+.getElementById(
+    "announcementForm"
+)
+.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const title =
+        document
+        .getElementById(
+            "title"
+        )
+        .value
+        .trim();
+
+
+        const category =
+        document
+        .getElementById(
+            "category"
+        )
+        .value;
+
+
+        const announcement =
+        document
+        .getElementById(
+            "announcement"
+        )
+        .value
+        .trim();
+
+
+
+        let list =
+        JSON.parse(
+            localStorage.getItem(
+                "campusHelpAnnouncements"
+            )
+        ) || [];
+
+
+
+        const id =
+        "UP-" +
+        Date.now();
+
+
+
+        list.unshift({
+
+            id:
+            id,
+
+            title:
+            title,
+
+            category:
+            category,
+
+            text:
+            announcement,
+
+            date:
+            new Date()
+            .toLocaleString()
+
+        });
+
+
+
+        localStorage.setItem(
+            "campusHelpAnnouncements",
+            JSON.stringify(
+                list
+            )
+        );
+
+
+
+        document
+        .getElementById(
+            "announcementForm"
+        )
+        .reset();
+
+
+        loadAnnouncements();
+
+
+        alert(
+            "📢 Announcement posted successfully!"
+        );
+
+    }
+);
+
+
+
+/* =================================
+   LOAD ANNOUNCEMENTS
+================================= */
+
+function loadAnnouncements() {
+
+    const list =
+    JSON.parse(
+        localStorage.getItem(
+            "campusHelpAnnouncements"
+        )
+    ) || [];
+
+
+    const container =
+    document.getElementById(
+        "announcementList"
+    );
+
+
+    container.innerHTML = "";
+
+
+    if (
+        list.length === 0
+    ) {
+
+        container.innerHTML = `
+
+        <p style="
+        color:#64748b;
+        text-align:center;
+        margin-top:15px;
+        ">
+
+        No announcements posted yet.
+
+        </p>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    list.forEach(
+        function(item) {
+
+
+            const div =
+            document.createElement(
+                "div"
+            );
+
+
+            div.className =
+            "announcement";
+
+
+            div.innerHTML = `
+
+            <h3>
+            📢 ${item.title}
+            </h3>
+
+
+            <p>
+            <strong>
+            Category:
+            </strong>
+
+            ${item.category}
+            </p>
+
+
+            <p>
+            ${item.text}
+            </p>
+
+
+            <small>
+
+            ${item.id}
+            |
+            ${item.date}
+
+            </small>
+
+            `;
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =================================
+   START ADMIN DASHBOARD
+================================= */
+
+loadReports();
+
+loadAnnouncements();
+
+
+</script>
+
+
+</body>
+
+</html>

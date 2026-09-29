@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Track Report | CampusHelp</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+
+/* HEADER */
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 92%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+
+/* CARD */
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+
+/* TITLE */
+
+h2 {
+    text-align: center;
+    color: #123c69;
+    margin-bottom: 25px;
+}
+
+
+/* SEARCH */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #123c69;
+}
+
+.search-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background: #123c69;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ERROR */
+
+.error {
+    display: none;
+    margin-top: 18px;
+    padding: 15px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* RESULT */
+
+.result {
+    display: none;
+}
+
+
+/* STATUS */
+
+.status-box {
+    background: #f4f7fb;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.status-title {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.current-status {
+    font-size: 25px;
+    font-weight: bold;
+    color: #123c69;
+}
+
+
+/* PROGRESS */
+
+.progress-container {
+    margin: 30px 0;
+}
+
+.progress-line {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+/* LINE */
+
+.progress-line::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 12%;
+    right: 12%;
+    height: 5px;
+    background: #d1d5db;
+    z-index: 0;
+}
+
+
+/* STEP */
+
+.step {
+    width: 30%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #d1d5db;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 24px;
+    border: 4px solid white;
+}
+
+
+/* ACTIVE */
+
+.step.active .circle {
+    background: #123c69;
+    color: white;
+}
+
+.step.completed .circle {
+    background: #16a34a;
+    color: white;
+}
+
+
+/* STEP TEXT */
+
+.step p {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.step small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+
+/* INFORMATION */
+
+.info {
+    background: #f4f7fb;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.info strong {
+    color: #123c69;
+}
+
+
+/* DEVELOPER */
+
+.developer {
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+.developer h3 {
+    margin-bottom: 8px;
+}
+
+
+/* BACK */
+
+.back {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #e5e7eb;
+    color: #222;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .progress-line::before {
+        left: 15%;
+        right: 15%;
+    }
+
+    .circle {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .step p {
+        font-size: 12px;
+    }
+
+    .step small {
+        font-size: 11px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+🆘 CAMPUSHELP
+</div>
+
+<p>
+Track Your Campus Report
+</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- SEARCH -->
+
+<div class="card">
+
+<h2>
+🔎 Track My Report
+</h2>
+
+<label for="reportIdInput">
+Enter Report ID
+</label>
+
+<input
+type="text"
+id="reportIdInput"
+placeholder="Example: CH-2026-0003">
+
+<button
+class="search-btn"
+onclick="trackReport()">
+
+🔎 Track Report
+
+</button>
+
+
+<div
+id="errorMessage"
+class="error">
+
+❌ Report not found.
+
+</div>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div
+id="result"
+class="card result">
+
+<h2>
+📋 Report Progress
+</h2>
+
+
+<!-- CURRENT STATUS -->
+
+<div class="status-box">
+
+<div class="status-title">
+Current Status
+</div>
+
+<div
+id="currentStatus"
+class="current-status">
+
+New
+
+</div>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-container">
+
+<div class="progress-line">
+
+
+<!-- SUBMITTED -->
+
+<div
+id="stepSubmitted"
+class="step">
+
+<div class="circle">
+📝
+</div>
+
+<p>
+Submitted
+</p>
+
+<small>
+Report received
+</small>
+
+</div>
+
+
+<!-- IN PROGRESS -->
+
+<div
+id="stepProgress"
+class="step">
+
+<div class="circle">
+🔧
+</div>
+
+<p>
+In Progress
+</p>
+
+<small>
+Being handled
+</small>
+
+</div>
+
+
+<!-- RESOLVED -->
+
+<div
+id="stepResolved"
+class="step">
+
+<div class="circle">
+✅
+</div>
+
+<p>
+Resolved
+</p>
+
+<small>
+Problem solved
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- DETAILS -->
+
+<div class="info">
+
+<strong>
+Report ID:
+</strong>
+
+<span id="displayId"></span>
+
+</div>
+
+
+<div class="info">
+
+<strong>
+Student Name:
+</strong>
+
+<span id="name"></span>
+
+</div>
+
+
+<div class="info">
+
+<strong>
+Problem Type:
+</strong>
+
+<span id="type"></span>
+
+</div>
+
+
+<div class="info">
+
+<strong>
+Location:
+</strong>
+
+<span id="location"></span>
+
+</div>
+
+
+<div class="info">
+
+<strong>
+Description:
+</strong>
+
+<span id="description"></span>
+
+</div>
+
+
+<div class="info">
+
+<strong>
+Urgency:
+</strong>
+
+<span id="urgency"></span>
+
+</div>
+
+
+<div class="info">
+
+<strong>
+Date Submitted:
+</strong>
+
+<span id="date"></span>
+
+</div>
+
+
+</div>
+
+
+<!-- DEVELOPER -->
+
+<div class="developer">
+
+<h3>
+👨‍💻 Developed By
+</h3>
+
+<p>
+Katwesigye Nicholas
+</p>
+
+<p>
+BIT Student | CampusHelp Project
+</p>
+
+</div>
+
+
+<a
+href="index.html"
+class="back">
+
+🏠 Back to Home
+
+</a>
+
+
+</div>
+
+
+<footer>
+
+CampusHelp — Report. Connect. Get Help. Stay Safe.
+
+<br><br>
+
+© 2026 CampusHelp
+
+</footer>
+
+
+<script>
+
+
+/* =====================================
+   TRACK REPORT
+===================================== */
+
+function trackReport() {
+
+
+const enteredId =
+document
+.getElementById("reportIdInput")
+.value
+.trim()
+.toUpperCase();
+
+
+const error =
+document
+.getElementById("errorMessage");
+
+
+const result =
+document
+.getElementById("result");
+
+
+if (enteredId === "") {
+
+error.style.display = "block";
+
+error.textContent =
+"⚠️ Please enter your Report ID.";
+
+result.style.display = "none";
+
+return;
+
+}
+
+
+/* GET REPORTS */
+
+const reports =
+JSON.parse(
+localStorage.getItem(
+"campusHelpReports"
+)
+) || [];
+
+
+/* FIND REPORT */
+
+const report =
+reports.find(function(item) {
+
+return String(item.id)
+.toUpperCase() === enteredId;
+
+});
+
+
+/* NOT FOUND */
+
+if (!report) {
+
+error.style.display = "block";
+
+error.textContent =
+"❌ Report not found. Please check your Report ID.";
+
+result.style.display = "none";
+
+return;
+
+}
+
+
+/* FOUND */
+
+error.style.display = "none";
+
+result.style.display = "block";
+
+
+/* DISPLAY DETAILS */
+
+document
+.getElementById("displayId")
+.textContent =
+report.id;
+
+
+document
+.getElementById("name")
+.textContent =
+report.name;
+
+
+document
+.getElementById("type")
+.textContent =
+report.type;
+
+
+document
+.getElementById("location")
+.textContent =
+report.location;
+
+
+document
+.getElementById("description")
+.textContent =
+report.description;
+
+
+document
+.getElementById("urgency")
+.textContent =
+report.urgency;
+
+
+document
+.getElementById("date")
+.textContent =
+report.date;
+
+
+/* CURRENT STATUS */
+
+const status =
+report.status || "New";
+
+
+document
+.getElementById("currentStatus")
+.textContent =
+status;
+
+
+/* UPDATE PROGRESS */
+
+updateProgress(status);
+
+}
+
+
+/* =====================================
+   UPDATE PROGRESS
+===================================== */
+
+function updateProgress(status) {
+
+
+const submitted =
+document.getElementById(
+"stepSubmitted"
+);
+
+const progress =
+document.getElementById(
+"stepProgress"
+);
+
+const resolved =
+document.getElementById(
+"stepResolved"
+);
+
+
+/* RESET */
+
+submitted.className =
+"step";
+
+progress.className =
+"step";
+
+resolved.className =
+"step";
+
+
+/* NEW */
+
+if (
+status === "New"
+) {
+
+submitted.className =
+"step active";
+
+}
+
+
+/* IN PROGRESS */
+
+else if (
+status === "In Progress"
+) {
+
+submitted.className =
+"step completed";
+
+progress.className =
+"step active";
+
+}
+
+
+/* RESOLVED */
+
+else if (
+status === "Resolved"
+) {
+
+submitted.className =
+"step completed";
+
+progress.className =
+"step completed";
+
+resolved.className =
+"step active";
+
+}
+
+}
+
+
+/* =====================================
+   AUTO LOAD LAST REPORT
+===================================== */
+
+const lastReport =
+localStorage.getItem(
+"campusHelpLastReport"
+);
+
+
+if (lastReport) {
+
+document
+.getElementById("reportIdInput")
+.value =
+lastReport;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
