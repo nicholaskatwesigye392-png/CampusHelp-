@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nicholaskatwesigye392-png.github.io/CampusHelp-/sitemap.xml
