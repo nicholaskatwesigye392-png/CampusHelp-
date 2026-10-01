@@ -3,52 +3,41 @@
 
 <head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <!-- =========================
-     GOOGLE SEARCH CONSOLE
+     GOOGLE VERIFICATION
 ========================= -->
 
-<meta
-name="google-site-verification"
+<meta name="google-site-verification"
 content="jU0TfsBzGCzVZLPDDNTZdxPRk63aQnq4vc1ntkJq-3c">
 
 
 <!-- =========================
-     BASIC SEO
+     SEO
 ========================= -->
 
-<meta charset="UTF-8">
+<title>CampusHelp | Campus Problem Reporting & Student Support</title>
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="CampusHelp is a simple campus problem reporting platform that helps students report problems, track reports, receive campus updates and get help.">
 
-<title>
-CampusHelp | Campus Problem Reporting and Tracking System
-</title>
+<meta name="keywords"
+content="CampusHelp, campus problem reporting, student support, campus reports, university problems, student complaints, campus safety, campus updates">
 
-<meta
-name="description"
-content="CampusHelp is a campus problem reporting and tracking system that helps students report campus problems, track reports, receive important campus updates and get assistance.">
-
-<meta
-name="keywords"
-content="CampusHelp, campus problem reporting, campus report tracking, student reporting system, university problem reporting, campus issues, student help, campus help">
-
-<meta
-name="author"
+<meta name="author"
 content="Katwesigye Nicholas">
 
-<meta
-name="robots"
+<meta name="robots"
 content="index, follow">
 
+<meta name="language"
+content="English">
 
-<!-- =========================
-     CANONICAL URL
-========================= -->
-
-<link
-rel="canonical"
+<link rel="canonical"
 href="https://nicholaskatwesigye392-png.github.io/CampusHelp-/">
 
 
@@ -56,30 +45,34 @@ href="https://nicholaskatwesigye392-png.github.io/CampusHelp-/">
      OPEN GRAPH
 ========================= -->
 
-<meta
-property="og:title"
-content="CampusHelp | Campus Problem Reporting and Tracking System">
+<meta property="og:title"
+content="CampusHelp | Campus Problem Reporting & Student Support">
 
-<meta
-property="og:description"
-content="Report campus problems, track reports, receive campus updates and get help with CampusHelp.">
+<meta property="og:description"
+content="Report campus problems, track reports, receive important campus updates and get help through CampusHelp.">
 
-<meta
-property="og:type"
+<meta property="og:type"
 content="website">
 
-<meta
-property="og:url"
+<meta property="og:url"
 content="https://nicholaskatwesigye392-png.github.io/CampusHelp-/">
+
+<meta property="og:site_name"
+content="CampusHelp">
 
 
 <!-- =========================
-     BROWSER THEME
+     TWITTER / SOCIAL SHARING
 ========================= -->
 
-<meta
-name="theme-color"
-content="#123c69">
+<meta name="twitter:card"
+content="summary">
+
+<meta name="twitter:title"
+content="CampusHelp | Campus Problem Reporting">
+
+<meta name="twitter:description"
+content="A simple platform for students to report campus problems, track reports and receive important campus information.">
 
 
 <!-- =========================
@@ -87,25 +80,21 @@ content="#123c69">
 ========================= -->
 
 <script type="application/ld+json">
+
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@type": "WebSite",
   "name": "CampusHelp",
   "url": "https://nicholaskatwesigye392-png.github.io/CampusHelp-/",
-  "description": "A campus problem reporting and tracking system that helps students report problems, track reports and receive campus updates.",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Web",
-  "author": {
+  "description": "A campus problem reporting and student support platform.",
+  "creator": {
     "@type": "Person",
     "name": "Katwesigye Nicholas"
   }
 }
+
 </script>
 
-
-<!-- =========================
-     STYLES
-========================= -->
 
 <style>
 
@@ -119,6 +108,7 @@ body {
     font-family: Arial, sans-serif;
     background: #f4f7fb;
     color: #222;
+    line-height: 1.6;
 }
 
 
@@ -153,6 +143,10 @@ header {
     border-radius: 8px;
 
     font-weight: bold;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
 }
 
 
@@ -207,6 +201,10 @@ header {
     font-size: 18px;
 
     font-weight: bold;
+}
+
+.hero-btn:hover {
+    opacity: 0.9;
 }
 
 
@@ -356,9 +354,7 @@ header {
 }
 
 
-/* =========================
-   NOTIFICATION
-========================= */
+/* NOTIFICATION */
 
 .notification {
     border-left: 5px solid #123c69;
@@ -419,9 +415,7 @@ header {
 }
 
 
-/* =========================
-   NOTIFICATION BUTTONS
-========================= */
+/* NOTIFICATION BUTTONS */
 
 .notification-actions {
     display: flex;
@@ -730,7 +724,8 @@ footer {
 
 <a
 href="Login.html"
-class="login-btn">
+class="login-btn"
+aria-label="Login to CampusHelp">
 
 🔐 Login
 
@@ -746,18 +741,19 @@ class="login-btn">
 <section class="hero">
 
 <h1>
-CampusHelp – Campus Problem Reporting and Tracking
+CampusHelp - Campus Problem Reporting and Student Support
 </h1>
 
 <p>
-A simple and reliable platform for students
-to report campus problems, track their reports,
+CampusHelp is a simple and reliable platform that helps
+students report campus problems, track their reports,
 receive important campus information and get help.
 </p>
 
 <a
 href="Report.html"
-class="hero-btn">
+class="hero-btn"
+aria-label="Report a campus problem">
 
 🚨 Report a Problem
 
@@ -782,7 +778,7 @@ class="latest-report">
 </h2>
 
 <p>
-Your most recently submitted report:
+Your most recently submitted campus report:
 </p>
 
 <div
@@ -840,7 +836,7 @@ id="notificationList">
 
 <h2 class="section-title">
 
-What would you like to do?
+CampusHelp Services
 
 </h2>
 
@@ -884,8 +880,8 @@ Track My Report
 
 <p>
 Use your Report ID to check the
-current status of a problem you
-previously reported.
+current status and progress of a
+problem you previously reported.
 </p>
 
 <a href="track.html">
@@ -906,9 +902,9 @@ Campus Updates
 </h3>
 
 <p>
-View important announcements and
-updates published by the CampusHelp
-administration.
+View important announcements,
+safety information and updates
+published by CampusHelp administration.
 </p>
 
 <a href="Updates.html">
@@ -929,9 +925,9 @@ Get Campus Help
 </h3>
 
 <p>
-Need assistance? Find useful
-information about CampusHelp and
-how to use the system.
+Find useful information about
+CampusHelp, reporting problems
+and using the system.
 </p>
 
 <a href="Help.html">
@@ -967,7 +963,7 @@ How CampusHelp Works
 </div>
 
 <h3>
-Report a Problem
+Report
 </h3>
 
 <p>
@@ -985,7 +981,7 @@ and provide the required information.
 </div>
 
 <h3>
-Track Your Report
+Track
 </h3>
 
 <p>
@@ -1007,12 +1003,55 @@ Get Help
 </h3>
 
 <p>
-Campus staff can review the
-problem and take appropriate action.
+Campus staff can review the problem
+and take appropriate action.
 </p>
 
 </div>
 
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SEO INFORMATION SECTION
+========================= -->
+
+<section class="how-section">
+
+<h2 class="section-title">
+About CampusHelp
+</h2>
+
+<div class="card">
+
+<p>
+<strong>CampusHelp</strong> is a student-focused
+campus problem reporting and support platform.
+It provides a simple way for students to report
+campus issues, monitor the progress of submitted
+reports and access important campus updates.
+</p>
+
+<br>
+
+<p>
+Students can report issues related to
+<strong>campus safety, electricity, water,
+internet, infrastructure and other campus
+services</strong>. The platform helps connect
+students with the appropriate campus staff
+for follow-up and action.
+</p>
+
+<br>
+
+<p>
+CampusHelp is designed to make campus
+communication easier, faster and more organized.
+</p>
 
 </div>
 
@@ -1026,15 +1065,14 @@ problem and take appropriate action.
 <div class="safety">
 
 <h2>
-🛡️ CampusHelp
+🛡️ CampusHelp Safety
 </h2>
 
 <p>
-Your reports help make our campus
-safer, cleaner and better for
-everyone. Always provide clear and
-accurate information when reporting
-a problem.
+Your reports help make our campus safer,
+cleaner and better for everyone. Always
+provide clear and accurate information
+when reporting a problem.
 </p>
 
 </div>
@@ -1072,19 +1110,21 @@ BIT Student | CampusHelp Project
 
 <footer>
 
-CampusHelp — Report. Connect.
-Get Help. Stay Safe.
+<strong>
+CampusHelp
+</strong>
+— Report. Connect. Get Help. Stay Safe.
 
 <br>
 
 © 2026 CampusHelp
 
+<br>
+
+Campus Problem Reporting & Student Support Platform
+
 </footer>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
@@ -1238,8 +1278,6 @@ if (
     notificationList.innerHTML = "";
 
 
-    /* COUNT UNREAD */
-
     let unread = 0;
 
 
@@ -1266,14 +1304,11 @@ if (
     " Unread";
 
 
-    /* DISPLAY EACH NOTIFICATION */
-
     for (
         let i = 0;
         i < studentNotifications.length;
         i++
     ) {
-
 
         const notification =
         studentNotifications[i];
@@ -1302,8 +1337,6 @@ if (
         }
 
 
-        /* MESSAGE */
-
         const message =
         document.createElement("p");
 
@@ -1313,8 +1346,6 @@ if (
         notification.message +
         "</strong>";
 
-
-        /* STATUS */
 
         const status =
         document.createElement("span");
@@ -1329,8 +1360,6 @@ if (
         notification.status;
 
 
-        /* DATE */
-
         const date =
         document.createElement("p");
 
@@ -1343,8 +1372,6 @@ if (
         notification.date;
 
 
-        /* BUTTON AREA */
-
         const actions =
         document.createElement("div");
 
@@ -1352,8 +1379,6 @@ if (
         actions.className =
         "notification-actions";
 
-
-        /* MARK AS READ BUTTON */
 
         const readButton =
         document.createElement("button");
@@ -1396,8 +1421,6 @@ if (
         }
 
 
-        /* DELETE BUTTON */
-
         const deleteButton =
         document.createElement("button");
 
@@ -1420,8 +1443,6 @@ if (
         };
 
 
-        /* ADD BUTTONS */
-
         actions.appendChild(
             readButton
         );
@@ -1430,8 +1451,6 @@ if (
             deleteButton
         );
 
-
-        /* ADD CONTENT */
 
         box.appendChild(
             message
@@ -1505,47 +1524,4 @@ function markAsRead(
 
 
     for (
-        let i = 0;
-        i < allNotifications.length;
-        i++
-    ) {
-
-        if (
-            allNotifications[i].id ===
-            notificationId
-        ) {
-
-            allNotifications[i].read =
-            true;
-
-            break;
-
-        }
-
-    }
-
-
-    localStorage.setItem(
-        "campusHelpNotifications",
-        JSON.stringify(
-            allNotifications
-        )
-    );
-
-
-    location.reload();
-
-}
-
-
-/* =================================
-   DELETE NOTIFICATION
-================================= */
-
-function deleteNotification(
-    notificationId
-) {
-
-    const confirmDelete =
-    confirm(
-        "Are you sure y
+     
